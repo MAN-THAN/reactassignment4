@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link, useLocation,} from "react-router-dom"
+import {Link, useLocation,} from "react-router-dom";
+import "./style.css";
 
 function Student(){
 
@@ -59,6 +60,13 @@ function Student(){
          
          
           <table className='table table-striped tx'>
+              <tr>
+                  <th  className='heading'>Name</th>
+                  <th  className='heading'>Age</th>
+                  <th  className='heading'>Course</th>
+                  <th  className='heading'>Batch</th>
+                  <th  className='heading'>Change</th>
+              </tr>
               {student_data.length > 0 && student_data.map((e) => {
                   return (<tr>
                       <td>{e.name}</td>
