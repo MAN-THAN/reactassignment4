@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    display: flex;
+    align-items:stretch;
+    justify-content: space-around;
+    background-color: navy;
+    height: 60px;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-family: cursive;
+
+}
+.home{
+    background-image: linear-gradient(skyblue, salmon, white);
+    height: 90vh;
+    text-align: center;
+    font-size: 100px;
+    padding-top: 14%;
+    box-sizing: border-box;
+    color: navajowhite;
+    font-family: cursive;
+
+}
+.tx{
+    font-size: large;
+    position: relative;
+    bottom: 100px;
+    color: navajowhite;
+    
+}
+.link{
+    color: white;
+    text-decoration: none;
+    font-size: x-large; 
+}
+.link:focus{
+    background-color: aqua;
+    color: navy;
+}
+#btn{
+    font-size: x-large;
+    position: absolute;
+    top: 12%;
+    right: 10%;
+    border-radius:20px;
+    border: 5px solid transparent;
+    outline: none;
+}
+#btn:hover{
+    outline: 2px solid black;
+}
+
