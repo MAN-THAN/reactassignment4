@@ -40,19 +40,20 @@
     background-color: aqua;
     color: navy;
 }
-#btn{
-    font-size: x-large;
-    position: absolute;
-    top: 12%;
-    right: 10%;
-    border-radius:20px;
-    border: 5px solid transparent;
-    outline: none;
-}
-#btn:hover{
-    outline: 2px solid black;
-}
+
 .heading{
     color: black;
+}
+#mytable{
+   position: absolute;
+   top: 26%;
+   left: 10%;
+   width: 80%;
+   
+}
+#btn{
+    position: absolute;
+    right: 137px;
+    top: 92px;
 }
 

@@ -1,87 +1,57 @@
-import React from 'react';
-import {Link, useLocation,} from "react-router-dom";
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import "./style.css";
+import {Link,} from "react-router-dom"
 
-function Student(){
 
-    let student_data = [{
-        name: "manthan",
-        age: 22,
-        course : "Full Stack",
-        batch : "Oct",
+function Student(props) {
 
-    }, {
-     name: "xyzz",
-     age: 22,
-     course : "Full Stack",
-     batch : "Sep"
-
-    }, {
-     name: "xyzbhjvcz",
-     age: 22,
-     course : "Full Stack",
-     batch : "Oct"
-
-    }, {
-     name: "zzzzzzzz",
-     age: 22,
-     course : "Full Stack",
-     batch : "Sep"
-    }, {
-     name: "xyzz",
-     age: 22,
-     course : "Full Stack",
-     batch : "Sep"
-    }]
+ const {data} = props;
+ console.log(data)
+  return (
+      <>
+      <Stack spacing={2} direction="e">
+      <Link to = "/student-desc"><Button id ='btn'  variant="contained">Add New Student</Button></Link></Stack>
+    <TableContainer id='mytable' component={Paper}>
+      <Table sx={{ minWidth: 650 }}  aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell >Name</TableCell>
+            <TableCell align="right">Age</TableCell>
+            <TableCell align="right">Course</TableCell>
+            <TableCell align="right">Batch</TableCell>
+            <TableCell align="right">Change</TableCell>
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((e) => (
+            <TableRow
+              key={e.ID}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="e">
+                {e.name}
+              </TableCell>
+              <TableCell align="right">{e.age}</TableCell>
+              <TableCell align="right">{e.course}</TableCell>
+              <TableCell align="right">{e.batch}</TableCell>
+              <TableCell align='right'><Link to={`/student-desc/${e.ID}`}>Edit</Link></TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
     
-   let location = useLocation();
-   console.log(location.state)
-   if(location.state != null){
-       const {data} = location.state;
-       console.log(data)
-       
-       student_data.push(data);
-       console.log(student_data)
-      
-      
-
-    }
-   
-
-    
-
-     return (
-        <div className='home'>
-            <Link to="/student-desc">
-            <button id='btn'>Add New Student</button>
-            </Link>
-           
-    
-         
-         
-          <table className='table table-striped tx'>
-              <tr>
-                  <th  className='heading'>Name</th>
-                  <th  className='heading'>Age</th>
-                  <th  className='heading'>Course</th>
-                  <th  className='heading'>Batch</th>
-                  <th  className='heading'>Change</th>
-              </tr>
-              {student_data.length > 0 && student_data.map((e) => {
-                  return (<tr>
-                      <td>{e.name}</td>
-                      <td>{e.age}</td>
-                      <td>{e.course}</td>
-                      <td>{e.batch}</td>
-                      <td><Link to= "*">Edit</Link></td>
-                  </tr>)
-              })} 
-             
-          </table>
-          
-        
-      </div>
-  )
+    </>
+  );
 }
-
 export default Student
